@@ -1,12 +1,12 @@
-import { Text, View } from 'react-native';
+import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
+
+import AuthStack from './src/navigators/auth.stack'
 
 const Navigator = () => {
     return(
         <NavigationContainer>
-            <View>
-                <Text>Open up App.js to start working on your app!</Text>
-            </View>
+            <AuthStack/>
         </NavigationContainer>
     );
 }
