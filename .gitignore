@@ -2,6 +2,7 @@
 /provider_app/.expo
 /provider_app/node_modules
 /provider_app/package-lock.json
+/provider_app/yarn.lock
 
 # Logs
 logs

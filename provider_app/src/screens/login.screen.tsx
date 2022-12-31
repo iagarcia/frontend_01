@@ -1,11 +1,11 @@
 import React from "react";
-import { SafeAreaView, Text } from "react-native";
+import { View, Text } from "react-native";
 
 const LoginScreen = () => {
     return (
-        <SafeAreaView>
-            <Text>LOGIN SCREEN</Text>
-        </SafeAreaView>
+        <View className="flex-1">
+            <Text className="text-slate-100 m-8 ">LOGIN SCREEN</Text>
+        </View>
     );
 }
 export default LoginScreen

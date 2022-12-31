@@ -1,11 +1,11 @@
 import React from "react";
-import { SafeAreaView, Text } from "react-native";
+import { View, Text } from "react-native";
 
 const RecoverScreen = () => {
     return (
-        <SafeAreaView>
+        <View>
             <Text>RECOVER SCREEN</Text>
-        </SafeAreaView>
+        </View>
     );
 }
 export default RecoverScreen
