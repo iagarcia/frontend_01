@@ -16,7 +16,8 @@ module.exports = {
       light: "#BAFFF1",
       dark: "#80B0A6"
     },
-    extend: {},
+    extend: {
+    },
   },
   plugins: [],
 }
