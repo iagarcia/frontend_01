@@ -1,7 +1,5 @@
 import React from "react";
-import { View, Text, TextInput, Dimensions, Pressable } from 'react-native';
-import { SafeAreaView } from "react-native-safe-area-context";
-import { ScrollView } from "react-native-gesture-handler";
+import { View, Text, TextInput, Dimensions, Pressable, SafeAreaView, ScrollView } from 'react-native';
 
 import { Formik } from 'formik';
 import * as yup from 'yup'
@@ -26,7 +24,7 @@ const RegisterSchema = yup.object().shape({
     .required('Requerido')
   });
 
-const RegisterScreen = () => {
+const RegisterScreen = ({navigation}) => {
     return (
         <View className="flex-1 bg-light">
             <View className="absolute">
@@ -55,7 +53,7 @@ const RegisterScreen = () => {
                         }}
                     >
                     {({ handleChange, handleBlur, handleSubmit, values, errors, isValid }) => (
-                        <View>
+                    <View>
                         <Text className="text-5xl font-semibold pt-10">Crear cuenta</Text>
                         <Text className="text-xl font-medium pt-10">Nombre</Text>
                         <TextInput
@@ -103,13 +101,24 @@ const RegisterScreen = () => {
                             <Text className="text-error font-medium" >Las contraseñas no coinciden</Text>
                         }
                         <Pressable
+                            onPress={() => {
+                                navigation.navigate('LoginScreen')
+                            }}
+                        >
+                            <Text  
+                                className="text-info text-base text-right underline font-medium pt-5"
+                            >
+                                Ya tengo una cuenta
+                            </Text>
+                        </Pressable>
+                        <Pressable
                             className="p-3 bg-success mt-10 mb-5 rounded-full border-2 opacity-75"
                             disabled={!isValid || values.password !== values.passwordConf}
                             onPress={() => handleSubmit()}
                         >
                             <Text className="text-center text-xl font-bold">Crear</Text>
                         </Pressable>
-                        </View>    
+                    </View>
                     )}
                     </Formik>
                 </SafeAreaView>

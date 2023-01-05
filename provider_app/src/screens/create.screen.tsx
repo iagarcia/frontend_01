@@ -1,11 +1,11 @@
 import React from "react";
 import { View, Text } from "react-native";
 
-const RecoverScreen = () => {
+const CreateScreen = () => {
     return (
         <View>
-            <Text>RECOVER SCREEN</Text>
+            <Text>CREATE SCREEN</Text>
         </View>
     );
 }
-export default RecoverScreen
+export default CreateScreen
