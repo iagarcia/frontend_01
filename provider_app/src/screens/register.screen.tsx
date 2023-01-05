@@ -2,11 +2,15 @@ import React from "react";
 import { View, Text, TextInput, Dimensions, Pressable } from 'react-native';
 import { SafeAreaView } from "react-native-safe-area-context";
 import { ScrollView } from "react-native-gesture-handler";
-const width = Dimensions.get('screen').width;
-const height = Dimensions.get('screen').height;
+
 import { Formik } from 'formik';
 import * as yup from 'yup'
+
+import { Create } from '../requests/provider.requests'
 import BG from '../../assets/bg3.svg';
+
+const width = Dimensions.get('screen').width;
+const height = Dimensions.get('screen').height;
 
 const RegisterSchema = yup.object().shape({
     name: yup.string()
@@ -19,7 +23,7 @@ const RegisterSchema = yup.object().shape({
     password: yup.string()
     .required('Requerido'),
     passwordConf: yup.string()
-    .required('Requerido'),
+    .required('Requerido')
   });
 
 const RegisterScreen = () => {
@@ -40,6 +44,13 @@ const RegisterScreen = () => {
                         }}
                         onSubmit={values=>{
                             console.log(values);
+                            Create({
+                                name: values.name,
+                                email: values.email,
+                                password: values.password
+                            }).then(res=> {
+                                console.log("RESPONSE IS", res)
+                            })
                             return;
                         }}
                     >
